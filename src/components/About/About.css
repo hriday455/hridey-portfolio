@@ -1,0 +1,207 @@
+/* src/components/About/About.css */
+
+.about-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.about-intro { /* Kept your existing .about-intro styles */
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-intro h2 { /* Kept your existing .about-intro h2 styles */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-intro p { /* Kept your existing .about-intro p styles */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--secondary-text-color);
+  margin-bottom: 15px;
+}
+
+.about-intro p .purple { /* Kept your existing .about-intro p .purple styles */
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* --- Styles for "KNOW WHO I'M" section with Photo --- */
+.about-me-container { /* NEW: Replaces your old .about-me and controls photo/text layout */
+  display: flex;
+  flex-direction: column; /* Mobile: Photo above text */
+  align-items: center;   /* Center items horizontally in column layout */
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  max-width: 900px; /* Overall container width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.about-me-photo-container { /* NEW: Specific container for the photo element */
+  flex-shrink: 0;
+  margin-bottom: 20px; /* Space below photo on mobile */
+}
+
+.about-me-photo { /* NEW: Styles for your actual photo */
+  width: 220px;  /* <<<--- ADJUST THIS (e.g., 200px, 220px, 250px) */
+  height: 220px; /* <<<--- ADJUST THIS (make same as width for a circle) */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 0 20px rgba(199, 112, 240, 0.4);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-me-text { /* NEW: Styles for the text block next to/below photo */
+  flex: 1;
+  text-align: center; /* Center text on mobile */
+}
+
+.about-me-text h2 { /* Modified from your old .about-me h2 */
+  font-size: 2.5rem; /* Or your preferred size */
+  margin-bottom: 20px;
+}
+
+.about-me-text p { /* Modified from your old .about-me p */
+  font-size: 1.1rem;
+  line-height: 1.7; /* Adjusted line height slightly */
+  color: var(--secondary-text-color);
+  margin-bottom: 10px;
+}
+/* --- End of "KNOW WHO I'M" section styles --- */
+
+
+.hobbies-list { /* Your existing hobbies list styles, might need minor tweaks if inside .about-me-text */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* For left alignment within its block */
+  max-width: fit-content;  /* To not take full width if items are short */
+  margin: 20px auto 0 auto; /* To center the list block itself if text-align:center on parent */
+}
+
+.hobbies-list li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--secondary-text-color);
+  display: flex;
+  align-items: center;
+}
+
+.hobbies-list li svg {
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+/* Skills and Tools Section - Your existing styles are mostly fine */
+.skills-container, .tools-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.skills-title, .tools-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Slightly increased minmax */
+  gap: 25px; /* Slightly increased gap */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card { /* MODIFIED for icon layout */
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 10px; /* Slightly more rounded */
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  min-height: 130px; /* Consistent height for cards */
+}
+
+.skill-icon { /* NEW: For styling icons within skill cards */
+  margin-bottom: 12px; /* Space between icon and skill name */
+  color: var(--primary-color); 
+}
+
+.skill-card span { /* MODIFIED: ensure text is below icon */
+  margin-top: auto; /* Pushes text to bottom if icon is small, or use fixed margin */
+}
+
+.skill-card:hover { /* Enhanced hover */
+  transform: translateY(-7px) scale(1.05);
+  box-shadow: 0px 12px 28px rgba(199, 112, 240, 0.3);
+}
+
+/* Removed your old .about-photo and .about-photo img as they are replaced by .about-me-photo */
+
+/* --- Media Queries --- */
+@media (min-width: 768px) { /* Styles for desktop/tablet */
+  .about-me-container {
+    flex-direction: row;
+    align-items: center; 
+    text-align: left; 
+  }
+
+  .about-me-photo-container {
+    margin-bottom: 0;
+    margin-right: 40px; /* Space between photo and text on desktop */
+    /* To put photo on the right: order: 1; .about-me-text { order: 0; margin-right:0; margin-left: 40px;} */
+  }
+
+  .about-me-text {
+    text-align: left;
+  }
+  
+  .about-me-text h2 {
+     text-align: left; /* Align "KNOW WHO I'M" left on desktop */
+  }
+
+  .hobbies-list {
+    margin: 20px 0 0 0; /* Align hobby list to the left within its container */
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 767px) { /* Styles for mobile - combined your existing mobile styles */
+  .about-intro h2, .about-me-text h2, .skills-title, .tools-title { /* Target new .about-me-text h2 */
+    font-size: 2rem;
+  }
+  .about-intro p, .about-me-text p, .hobbies-list li { /* Target new .about-me-text p */
+    font-size: 1rem;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px; /* Adjusted gap for mobile */
+  }
+  .skill-card {
+    padding: 15px;
+    font-size: 0.9rem;
+    min-height: 110px; /* Adjusted min-height for mobile */
+  }
+  .about-me-photo {
+    width: 180px; /* Smaller photo on mobile */
+    height: 180px;
+  }
+}

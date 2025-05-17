@@ -1,0 +1,45 @@
+/* src/components/Resume/Resume.css */
+.resume-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.resume-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.resume-section p {
+  font-size: 1.1rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 40px;
+}
+
+.resume-button {
+  font-size: 1.2rem;
+  padding: 12px 25px;
+}
+
+.resume-button svg {
+  margin-right: 10px;
+}
+
+.resume-viewer {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 850px; /* Adjust the max-width as you see fit */
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #fff; /* Optional: if your PDF is transparent or for loading */
+}
+
+.resume-viewer iframe {
+  display: block; /* Removes potential extra space below the iframe */
+  border-radius: 8px; /* If you want rounded corners on the iframe view */
+}
+
+@media (max-width: 768px) {
+  .resume-section h2 {
+    font-size: 2rem;
+  }
+}

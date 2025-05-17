@@ -1,0 +1,239 @@
+/* src/components/Projects/Projects.css */
+.projects-section {
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.projects-section > .container > p {
+  font-size: 1.1rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.project-card {
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 30px rgba(var(--primary-color-rgb, 199, 112, 240), 0.35);
+}
+
+.project-image-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #2a2440;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Or 'cover' based on your preference */
+  transition: transform 0.4s ease-out;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+.project-functionality-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: var(--secondary-text-color);
+  line-height: 1.6;
+}
+
+.project-tags {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: rgba(var(--primary-color-rgb, 199, 112, 240), 0.15);
+  color: var(--primary-color);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  flex-grow: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.project-button svg {
+  margin-right: 7px;
+  font-size: 1.1em;
+}
+
+.project-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.project-links > .project-button:only-child {
+    flex-grow: 0;
+    min-width: 150px;
+}
+
+/* --- Styles for "More Projects Teaser" --- */
+.more-projects-teaser {
+  margin-top: 70px; /* Increased space above this section */
+  padding: 30px 35px; /* Slightly more padding */
+  background-color: rgba(var(--primary-color-rgb, 199, 112, 240), 0.07); /* Slightly more visible bg tint */
+  border-radius: 10px; /* More rounded */
+  border: 1px dashed var(--primary-color);
+  max-width: 750px; /* Slightly wider */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.more-projects-teaser h3 {
+  font-size: 1.6rem; /* Slightly larger heading */
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.more-projects-teaser p {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+  line-height: 1.8; /* Increased line height for readability */
+  margin-bottom: 10px; /* Default margin for paragraphs */
+}
+
+.more-projects-teaser p.teaser-contact {
+  margin-top: 20px; /* More space above the contact line */
+  font-size: 1.05rem; /* Slightly larger for emphasis */
+}
+
+.teaser-email-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent; /* For hover effect */
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  margin-left: 8px; /* Space before the link */
+  display: inline-flex; /* Align icon and text */
+  align-items: center;
+}
+
+.teaser-email-link:hover {
+  color: var(--primary-darker);
+  border-bottom-color: var(--primary-darker);
+}
+/* --- End of "More Projects Teaser" Styles --- */
+
+@media (max-width: 767px) {
+  .projects-section h2 {
+    font-size: 2rem;
+  }
+  .project-content h3 {
+    font-size: 1.4rem;
+  }
+  .project-image-container {
+    height: 180px;
+  }
+  .more-projects-teaser {
+    padding: 25px; /* Adjust padding for mobile */
+  }
+  .more-projects-teaser h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .project-button {
+    margin-bottom: 10px;
+  }
+  .project-button:last-child {
+    margin-bottom: 0;
+  }
+}

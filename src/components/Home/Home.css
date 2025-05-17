@@ -1,0 +1,128 @@
+/* src/components/Home/Home.css */
+.home-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  /* background-color: var(--background-color); /* This will be covered by App.css or particles */
+  padding-top: 70px; /* Space for fixed navbar */
+  padding-bottom: 50px; /* Add some bottom padding */
+  box-sizing: border-box; /* Ensure padding is included in height calculation */
+}
+
+.home-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /* More space between text and image */
+  width: 100%;
+  text-align: left;
+  gap: 30px; /* Adds space between text and image flex items */
+}
+
+.home-text {
+  max-width: 600px;
+  flex-shrink: 0; /* Prevent text block from shrinking too much */
+}
+
+.home-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.home-text .purple {
+  color: var(--primary-color);
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate(0.0deg) }
+  100% { transform: rotate(0.0deg) }
+}
+
+.home-typewriter {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  min-height: 70px; /* Prevent layout shift */
+}
+
+/* === MODIFIED SECTION FOR THE IMAGE CONTAINER === */
+.home-image { /* This is the container for your illustration */
+  max-width: 450px; /* Adjust max width of the card itself */
+  width: 100%; /* Allow it to shrink on smaller views before hitting max-width */
+  padding: 20px; /* Padding inside the card, around the image */
+  background-color: var(--card-bg-color); /* Dark background for the card - using --card-bg-color */
+  /* Or use your exact page background: background-color: var(--background-color); */
+  border-radius: 25px; /* Rounded corners for the card container */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* A more pronounced shadow for the card */
+  display: flex; /* To help center image if needed, or just for structure */
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1; /* Allow image container to shrink if needed */
+}
+
+.home-main-img { /* Style for your actual illustration image */
+  width: 100%;    /* Makes the image responsive within its container */
+  height: auto;   /* Maintains the image's aspect ratio */
+  display: block; /* Removes any extra space below the image */
+  border-radius: 15px; /* If your image itself has rounded corners, make this
+                           slightly less than .home-image's border-radius for a nested look.
+                           If the image is now truly transparent and rectangular, 
+                           you might remove this or adjust. */
+}
+/* === END OF MODIFIED SECTION === */
+
+/* This rule was a bit redundant if .home-main-img is used, removing it to avoid conflict */
+/*
+.home-image img, .home-image svg {
+  width: 100%;
+  height: auto;
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .home-content {
+    flex-direction: column-reverse; /* Stack image above text on mobile */
+    text-align: center; /* Center the text block on mobile */
+  }
+  .home-text {
+    text-align: center; /* Ensure text inside is also centered */
+  }
+  .home-image {
+    max-width: 90%; /* Make it more responsive to screen width */
+    width: 380px; /* A fixed width might be better for consistency on tablet */
+    padding: 15px; /* Adjust padding */
+    margin-top: 40px; /* Space above image when stacked */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-text h1 {
+    font-size: 2.2rem; /* Adjusted for better mobile readability */
+  }
+  .home-typewriter {
+    font-size: 1.8rem; /* Adjusted for better mobile readability */
+  }
+  .home-image {
+    width: 320px; /* A fixed width for mobile */
+    padding: 12px; /* Adjust padding */
+  }
+}

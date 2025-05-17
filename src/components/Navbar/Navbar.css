@@ -1,0 +1,168 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  background: transparent; /* Initially transparent */
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.sticky {
+  background: rgba(29, 24, 54, 0.9); /* Semi-transparent dark background when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  color: var(--primary-color);
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item {
+  height: 70px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s ease-in-out;
+}
+
+.nav-links {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links svg {
+  margin-right: 8px;
+}
+
+.nav-links:hover,
+.nav-links.active { /* React Router's NavLink adds 'active' class */
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.nav-links.special-link {
+  background-color: var(--primary-color);
+  color: white !important; /* Ensure text is white, !important to override general .nav-links color */
+  padding: 6px 12px; /* <<<--- REDUCED PADDING (Adjust these values) */
+  border-radius: 5px;
+  margin-left: 15px; /* Space to its left */
+  border-bottom: none !important; /* CRUCIAL: Remove the hover/active border from regular links */
+  font-size: 0.9rem; /* <<<--- SLIGHTLY SMALLER FONT SIZE (Adjust this) */
+  line-height: 1.4; /* Adjust line height to ensure text is centered vertically */
+  display: inline-flex; /* Helps with vertical alignment of icon and text */
+  align-items: center;
+  height: auto; /* Override the 70px height from .nav-item if needed */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover */
+}
+
+.nav-links.special-link:hover {
+  background-color: var(--primary-darker);
+  color: white !important; /* Keep text white on hover */
+  border-bottom: none !important; /* Ensure no border on hover */
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.menu-icon {
+  display: none; /* Hidden on desktop */
+  color: var(--text-color);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 70px); /* Full height minus navbar */
+    position: absolute;
+    top: 70px; /* Position below navbar */
+    left: -100%; /* Hidden off-screen */
+    opacity: 1;
+    transition: all 0.5s ease;
+    background: var(--background-color); /* Solid background for mobile menu */
+  }
+
+  .nav-menu.active {
+    left: 0; /* Slide in */
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-links:hover,
+  .nav-links.active {
+    color: var(--primary-color);
+    border-bottom: none; /* No bottom border on mobile links when active */
+  }
+  
+  .nav-item:hover {
+    border: none;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+  
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 25%);
+  }
+
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 40%);
+  }
+
+  .nav-links.special-link {
+    margin: 1rem 0;
+    width: auto; /* Adjust width for button */
+    padding: 10px 20px;
+  }
+}

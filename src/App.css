@@ -1,0 +1,11 @@
+/* src/App.css */
+.App {
+  position: relative; /* For particle background positioning */
+  z-index: 1;
+}
+
+.main-content {
+  position: relative; /* Ensure content is above particles */
+  z-index: 2;
+  padding-top: 70px; /* Account for fixed navbar height */
+}
